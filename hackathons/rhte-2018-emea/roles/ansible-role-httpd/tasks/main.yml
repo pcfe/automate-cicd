@@ -30,11 +30,9 @@
 # Configure Apache.
 - include_tasks: "configure.yml"
 
-# Error 2. This task will fail unless id run with 'become: true'
 - name: Ensure httpd is started.
   systemd:
     name: "{{ apache_service }}"
     state: "{{ apache_state }}"
     enabled: yes
-  become: false
-  #  become: true
+  become: true
