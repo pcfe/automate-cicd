@@ -5,4 +5,4 @@
   tasks:
     - assert:
         that:
-          -  "{{ lookup( 'file', '/var/lib/jenkins/workspace/callback-plugin-ci/git/REPONAME/to_be_tested.txt') }} ==  0"
+          -  "{{ lookup( 'file', '/var/lib/jenkins/workspace/callback-plugin-ci/git/git/to_be_tested.txt') }} ==  0"
