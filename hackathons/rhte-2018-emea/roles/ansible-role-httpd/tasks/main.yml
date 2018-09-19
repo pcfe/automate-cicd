@@ -15,11 +15,9 @@
   check_mode: no
   register: _apache_version
 
-# Error 1. Typo in the variable
 - name: Create apache_version variable.
   set_fact:
-    apache_version: "{{ _apache_version_XX.stdout.split()[2].split('/')[1] }}"
-    # apache_version: "{{ _apache_version.stdout.split()[2].split('/')[1] }}"
+    apache_version: "{{ _apache_version.stdout.split()[2].split('/')[1] }}"
 
 - name: Include variables when Apache 2.2
   include_vars: apache-22.yml
