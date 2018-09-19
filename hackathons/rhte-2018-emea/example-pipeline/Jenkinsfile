@@ -8,21 +8,38 @@ pipeline {
             }
         }
 
-        stage('Syntax Check') {
+        stage('Syntax Check banner') {
             steps {
                 sh  "ansible-playbook -i app1, hackathons/rhte-2018-emea/playbook-ansible-role-banner.yaml --syntax-check"
             }
         }
 
-        stage('Dry run') {
+        stage('Dry run banner') {
             steps {
                 sh  "ansible-playbook -u ec2-user -i app1 hackathons/rhte-2018-emea/playbook-ansible-role-banner.yaml --check"
             }
         }
 
-        stage('Execute Playbook') {
+        stage('Execute Playbook banner') {
             steps {
                 sh  "ansible-playbook -u ec2-user -i app1, hackathons/rhte-2018-emea/playbook-ansible-role-banner.yaml"
+            }
+        }
+        stage('Syntax Check httpd') {
+            steps {
+                sh  "ansible-playbook -i app1, hackathons/rhte-2018-emea/playbook-ansible-role-httpd.yaml --syntax-check"
+            }
+        }
+
+        stage('Dry run httpd') {
+            steps {
+                sh  "ansible-playbook -u ec2-user -i app1 hackathons/rhte-2018-emea/playbook-ansible-role-httpd.yaml --check"
+            }
+        }
+
+        stage('Execute Playbook httpd') {
+            steps {
+                sh  "ansible-playbook -u ec2-user -i app1, hackathons/rhte-2018-emea/playbook-ansible-role-httpd.yaml"
             }
         }
     }
